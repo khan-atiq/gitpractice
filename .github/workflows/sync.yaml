@@ -14,7 +14,7 @@ jobs:
 
       - name: Sync with local repository
         run: |
-          git remote add local ssh://youruser@192.168.0.224/srv/git/gitpractice.git
+          git remote add local ssh://git@192.168.0.224/srv/git/gitpractice.git
           git push local dev
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
