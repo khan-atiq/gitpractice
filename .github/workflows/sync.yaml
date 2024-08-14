@@ -1,0 +1,20 @@
+name: Sync Repository
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Sync with local repository
+        run: |
+          git remote add local ssh://youruser@192.168.0.224/srv/git/gitpractice.git
+          git push local dev
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
